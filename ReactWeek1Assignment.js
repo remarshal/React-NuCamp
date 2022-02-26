@@ -23,9 +23,11 @@ class Bootcamp {
         if (duplicateStudentsFound.length === 0) {
             this.students.push(newStudent)
             console.log(`Thank you for registering ${newStudent.email} to the bootcamp ${this.name}.`)
+            return this.students;
         // else show message that studen tis already registered 
         } else {
             console.log(`The students email ${newStudent.email} is already registered to the bootcamp ${this.name}.`)
+            return this.students;
         }
     }
 }
@@ -40,5 +42,4 @@ const React = new Bootcamp("React", "Advance");
 const Boostrap = new Bootcamp("Bootstrap", "Bigginner");
 
 // console testing
-React.registerStudent(Brandon);
-React.registerStudent(Brandon);
+// React.registerStudent(Brandon);
