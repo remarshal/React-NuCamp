@@ -23,7 +23,6 @@ function RenderPartner({ partner }) {
     }
 };
 
-
 function About(props) {
 
     const partners = props.partners.map(partner => {
@@ -33,8 +32,6 @@ function About(props) {
             </Media>
         );
     });
-
-
 
     return (
         <div className="container">
