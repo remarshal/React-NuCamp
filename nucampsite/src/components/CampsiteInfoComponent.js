@@ -1,14 +1,35 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, Breadcrumb, BreadcrumbItem, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import Modal from 'reactstrap/lib/Modal';
+import ModalHeader from 'reactstrap/lib/ModalHeader';
+import ModalBody from 'reactstrap/lib/ModalBody';
 
 class CommentForm extends Component {
+    state = {
+        isOpen: false
+    }
+
+    // arrow function to bind onClick
+    toggleModal = () => {
+        this.setState( {isOpen: !this.state.isOpen})
+}
+
     render() {
         return (
             <div>
-                <Button className='fa fa-lg fa-pencil' outline>
+                <Button className='fa fa-lg fa-pencil' outline onClick={this.toggleModal}>
                     {" "}Submit Comment
                 </Button>
+                <Modal isOpen={this.state.isOpen} toggle={this.toggleModal}>
+                    <ModalHeader toggle={this.toggleModal}>
+                        Header
+                    </ModalHeader>
+                    <ModalBody>
+                        Body
+                    </ModalBody>
+
+                </Modal>
             </div>
         );
     }
