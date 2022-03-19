@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardText, CardBody, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, Breadcrumb, BreadcrumbItem, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+
+class CommentForm extends Component {
+    render() {
+        return (
+            <div>
+                <Button className='fa fa-lg fa-pencil' outline>
+                    {" "}Submit Comment
+                </Button>
+            </div>
+        );
+    }
+}
 
 function RenderCampsite({ campsite }) {
     return (
@@ -31,6 +43,7 @@ function RenderComments({ comments }) {
                         </div>
                     );
                 })}
+                <CommentForm />
             </div>
         );
     } else {
