@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardText, CardBody, Breadcrumb, BreadcrumbItem, Button, Label, Modal, ModalBody, ModalHeader } from 'reactstrap';
-import { Control, LocalForm, Errors } from 'react-redux-form';
+import { Breadcrumb, BreadcrumbItem, Button, Card, CardImg, CardText, CardBody, Label, Modal, ModalBody, ModalHeader } from 'reactstrap';
+import { Control, Errors, LocalForm } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 
 const required = val => val && val.length;
-const maxLength = len => val => !val || (val.length <= len);
 const minLength = len => val => val && (val.length >= len);
+const maxLength = len => val => !val || (val.length <= len);
 
 function RenderCampsite({ campsite }) {
     return (
@@ -30,10 +30,10 @@ class CommentForm extends Component {
         this.setState({ isOpen: !this.state.isOpen });
     };
 
-    handleSubmit(values) {
+    handleSubmit = (values) => {
         console.log("Current state is: " + JSON.stringify(values));
         alert("Current state is: " + JSON.stringify(values));
-    }
+    };
 
     render() {
         return (
@@ -50,7 +50,7 @@ class CommentForm extends Component {
                             <div className="form-group">
                                 <Label htmlFor="rating">Rating</Label>
                                 <Control.select model=".rating" name="rating"
-                                    className="form-control">
+                                    className="form-control" defaultValue="1">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -84,6 +84,7 @@ class CommentForm extends Component {
                             <div className="form-group">
                                 <Label htmlFor="comment">Comment</Label>
                                 <Control.textarea model=".comment" id="comment" name="comment"
+                                    placeholder="Your Comment"
                                     rows="6"
                                     className="form-control"
                                 />
